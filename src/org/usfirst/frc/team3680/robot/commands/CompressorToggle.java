@@ -5,38 +5,35 @@ import org.usfirst.frc.team3680.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
-public class AutoDrive extends Command {
+public class CompressorToggle extends Command {
 
-    public AutoDrive() {
-        requires(Robot.drive);
+    public CompressorToggle() {
+       requires(Robot.compressor);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	setTimeout(2.5);
-    	
+    	RobotMap.comp.stop();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	RobotMap.driveTrain.arcadeDrive(.9,0);
-    	RobotMap.spin.set(-1);
+    	SmartDashboard.putString("CompressorToggle", "COMPRESSOR DISABLED");
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+        Timer.delay(1);
+    	return true;
     }
 
     // Called once after isFinished returns true
-    protected void end() {
-    	RobotMap.driveTrain.arcadeDrive(0,0);
-    	RobotMap.spin.set(0);
-    }
+    protected void end() {}
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run

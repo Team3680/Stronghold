@@ -21,6 +21,8 @@ public class OI {
     public JoystickButton button3;
     public JoystickButton button4;
     public JoystickButton button5;
+    public JoystickButton button9;
+
     public Joystick joystick1;
     public Joystick joystick2;
     //// CREATING BUTTONS
@@ -54,9 +56,10 @@ public class OI {
 		
 		button1.whenPressed(new Launch());
 		button3 = new JoystickButton(RobotMap.stick, 3);
-		button3.whileHeld(new LiftHigher());
+		
 		button2 = new JoystickButton(RobotMap.stick, 2);
-		button2.whileHeld(new LiftLower());
+		button3.whileHeld(new LiftLower());
+		button2.whileHeld(new LiftHigher());
 		button6 = new JoystickButton(RobotMap.stick, 6);
 		button6.whileHeld(new IntakeIn());
 		button7 = new JoystickButton(RobotMap.stick, 7);
@@ -65,7 +68,16 @@ public class OI {
 		button4.whenPressed(new ClampOpen());
 		button5 = new JoystickButton(RobotMap.stick, 5);
 		button5.whenPressed(new ClampClose());
-		
+		//button10 = new JoystickButton(RobotMap.stick, 10);
+		//button10.whileHeld(new SpinBackward());
+		//button10.cancelWhenPressed(new SpinForward());
+		//button11 = new JoystickButton(RobotMap.stick, 11);
+		//button11.whileHeld(new SpinForward());
+		//button11.cancelWhenPressed(new SpinBackward());
+		//button8 = new JoystickButton(RobotMap.stick, 8);
+		//button8.whenPressed(new CompressorToggle());
+		//button9 = new JoystickButton(RobotMap.stick, 9);
+		//button8.whenPressed(new CompressorOn());
 	}
 }
 

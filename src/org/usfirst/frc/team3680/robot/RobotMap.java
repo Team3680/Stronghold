@@ -33,12 +33,15 @@ public class RobotMap {
     public static double intakeMotorSpeedNegative = -1;
     public static int liftUpper = 1;
     public static int liftLower = 2;
+    public static int intakeUpper = 3;
+    public static int intakeLower = 4;
     
     //Will change talons to victors in drive. 
     public static Talon drive1;
     public static Talon drive2;
     public static Talon intake;
     public static Victor lift;
+    public static Victor spin;
     public static DigitalInput liftUpperSwitch;
     public static DigitalInput liftLowerSwitch;
     public static DigitalInput intakeInSwitch;
@@ -52,6 +55,7 @@ public class RobotMap {
     public static RobotDrive driveTrain;
     
     public static Joystick stick = new Joystick(0);
+    public static Joystick otherstick = new Joystick(1);
 
     public static Encoder encoderIntake = new Encoder(6, 7, true);
     public static Encoder encoderLift = new Encoder(8, 9, true);
@@ -61,10 +65,11 @@ public class RobotMap {
         drive2 = new Talon(driveVictor2);
         intake = new Talon(intakeTalon);
         lift = new Victor(liftTalon);
-        liftUpperSwitch = new DigitalInput(liftUpper);
-        liftLowerSwitch = new DigitalInput(liftLower);
-        intakeInSwitch = new DigitalInput(3);
-        intakeOutSwitch = new DigitalInput(4);
+        liftUpperSwitch = new DigitalInput(liftLower);
+        liftLowerSwitch = new DigitalInput(liftUpper);
+        intakeInSwitch = new DigitalInput(4);
+        intakeOutSwitch = new DigitalInput(3);
         driveTrain = new RobotDrive(drive1, drive2);
+        spin = new Victor(2);
     }
 }

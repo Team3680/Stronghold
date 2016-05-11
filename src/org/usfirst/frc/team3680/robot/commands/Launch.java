@@ -20,7 +20,7 @@ public class Launch extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	RobotMap.shooterSolSecondary.set(DoubleSolenoid.Value.kOff);
+    	/*RobotMap.shooterSolSecondary.set(DoubleSolenoid.Value.kOff);
     	Timer.delay(0.5);
     	RobotMap.shooterSolMain.set(DoubleSolenoid.Value.kForward);
     	Timer.delay(2);
@@ -29,7 +29,10 @@ public class Launch extends Command {
     	RobotMap.shooterSolSecondary.set(DoubleSolenoid.Value.kForward);
     	System.out.println("Launch Init");
     	RobotMap.shooterSolMain.set(DoubleSolenoid.Value.kOff);
-    	
+    	*/
+    	RobotMap.shooterSolMain.set(DoubleSolenoid.Value.kForward);
+    	Timer.delay(3);
+    	RobotMap.shooterSolMain.set(DoubleSolenoid.Value.kReverse);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -38,13 +41,15 @@ public class Launch extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        Timer.delay(5);
+        Timer.delay(1.5);
         return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	RobotMap.shooterSolSecondary.set(DoubleSolenoid.Value.kReverse);
+    	System.out.println("Launch isFinished");
+    	RobotMap.shooterSolMain.set(DoubleSolenoid.Value.kOff);
+    	
     }
 
     // Called when another command which requires one or more of the same

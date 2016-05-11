@@ -20,7 +20,6 @@ public class ClampClose extends Command {
     protected void initialize() {
     	RobotMap.clampSol.set(DoubleSolenoid.Value.kOff);
     	System.out.println("ClampClose Init");
-    	Timer.delay(2);
     	RobotMap.clampSol.set(DoubleSolenoid.Value.kForward);
     }
 
@@ -31,12 +30,14 @@ public class ClampClose extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	Timer.delay(2);
+    	Timer.delay(0.5);
         return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	RobotMap.clampSol.set(DoubleSolenoid.Value.kOff);
+    	
     }
 
     // Called when another command which requires one or more of the same

@@ -3,39 +3,38 @@ package org.usfirst.frc.team3680.robot.commands;
 import org.usfirst.frc.team3680.robot.Robot;
 import org.usfirst.frc.team3680.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
-public class AutoDrive extends Command {
 
-    public AutoDrive() {
-        requires(Robot.drive);
+public class CompressorOn extends Command {
+    public CompressorOn() {
+requires(Robot.compressor);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	setTimeout(2.5);
-    	
+    	RobotMap.comp.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	RobotMap.driveTrain.arcadeDrive(.9,0);
-    	RobotMap.spin.set(-1);
+    	SmartDashboard.putString("CompressorToggle", "COMPRESSOR ENABLED");
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut();
+    	Timer.delay(1);
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	RobotMap.driveTrain.arcadeDrive(0,0);
-    	RobotMap.spin.set(0);
     }
 
     // Called when another command which requires one or more of the same
