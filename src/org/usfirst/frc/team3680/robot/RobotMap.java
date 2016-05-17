@@ -7,7 +7,6 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Talon;
-import edu.wpi.first.wpilibj.TalonSRX;
 import edu.wpi.first.wpilibj.Victor;
 
 /**
@@ -35,8 +34,7 @@ public class RobotMap {
     public static int liftLower = 2;
     public static int intakeUpper = 3;
     public static int intakeLower = 4;
-    
-    //Will change talons to victors in drive. 
+
     public static Talon drive1;
     public static Talon drive2;
     public static Talon intake;
